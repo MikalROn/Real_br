@@ -44,6 +44,6 @@ from real_br import Real
 
 valor = 10
 real = Real(valor)
-print(float(real),  int(real), str(real)
+print(float(real),  int(real), str(real))
 
 ```
