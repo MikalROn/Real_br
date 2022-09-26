@@ -23,17 +23,17 @@ class Real:
 
                 self.centavos: int = self.verificar_valor(_valor)
 
-            self.reais: str = self.mascara_reais()
+            self.reais: str = self._mascara_reais()
         else:
             _valor = str(_valor)
             verificacao = self.verifica_centavos(_valor)
             if verificacao:
                 self.centavos = int(_valor)
-                self.reais: str = self.mascara_reais()
+                self.reais: str = self._mascara_reais()
             else:
                 raise ValueError(f'Entrada de valor invalida! valor = {_valor}')
 
-    def mascara_reais(self):
+    def _mascara_reais(self):
         if len(str(self.centavos)) > 2:
             valor_sem_virgula = str(self.centavos)[:-2]
             formato_brasileiro = re.split(r'([0-9]{3})', f'{valor_sem_virgula[::-1]}'.strip())
