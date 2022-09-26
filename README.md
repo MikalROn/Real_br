@@ -5,11 +5,11 @@
 este projeto tem como objetivo me ajudar na formatação, sanitização e apresentação dos valores com os quais eu diariamente trabalho.
 
 ## Entradas
-,,,
+```
 Rea(float)
 Real(int)
 Real(st)
-,,,
+```
 > Nos testes você consegue conferir melhor em quais formatos a classe aceita os valores.
 
 
@@ -27,4 +27,5 @@ print(real)
 valor = 10
 real = Real(valo)
 print(real.centavos)
+
 ```
