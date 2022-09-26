@@ -45,28 +45,14 @@ class Real:
 
         m = re.compile(r"\d+[,]?[.]?(\d+)?")
         result = m.match(str(valor))
-        if '-' in str(valor):
-            self._sinal = '-'
-            valor = str(valor).replace('_', '')
-            if result:
-                return self._sanitiza_valor(valor)
+        if result:
+            return self._sanitiza_valor(valor)
 
-            if 'R$' in str(valor):
-                return self._sanitiza_valor(valor.replace('R$', ''))
+        elif 'R$' in str(valor):
+            return self._sanitiza_valor(valor.replace('R$', ''))
 
-            else:
-
-                raise ValueError(f'Entrada de valor invalida! valor = {valor}')
         else:
-            if result:
-                return self._sanitiza_valor(valor)
-
-            if 'R$' in str(valor):
-                return self._sanitiza_valor(valor.replace('R$', ''))
-
-            else:
-
-                raise ValueError(f'Entrada de valor invalida! valor = {valor}')
+            raise ValueError(f'Entrada de valor invalida! valor = {valor}')
 
     def _sanitiza_valor(self, valor: str):
 
