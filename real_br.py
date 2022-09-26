@@ -1,7 +1,6 @@
 
 import re
 
-
 class Real:
 
     def __init__(self, valor: float or int or str,
@@ -62,26 +61,26 @@ class Real:
             self._sinal = '-'
             valor = str(valor).replace('_', '')
             if result:
-                return self.sanitiza_valor(valor)
+                return self._sanitiza_valor(valor)
 
             if 'R$' in str(valor):
-                return self.sanitiza_valor(valor.replace('R$', ''))
+                return self._sanitiza_valor(valor.replace('R$', ''))
 
             else:
 
                 raise ValueError(f'Entrada de valor invalida! valor = {valor}')
         else:
             if result:
-                return self.sanitiza_valor(valor)
+                return self._sanitiza_valor(valor)
 
             if 'R$' in str(valor):
-                return self.sanitiza_valor(valor.replace('R$', ''))
+                return self._sanitiza_valor(valor.replace('R$', ''))
 
             else:
 
                 raise ValueError(f'Entrada de valor invalida! valor = {valor}')
 
-    def sanitiza_valor(self, valor: str):
+    def _sanitiza_valor(self, valor: str):
 
         valor_em_centavos = self._fatiar_valor(valor)
 
