@@ -20,6 +20,7 @@ class Real:
             else:
                 raise ValueError(f'Entrada de valor invalida! valor = {_valor}')
 
+
     def _mascara_reais(self):
         if len(str(self.centavos)) > 2:
             valor_sem_virgula = str(self.centavos)[:-2]
@@ -101,10 +102,16 @@ class Real:
             self._sinal = ''
             return valor
 
-    # metodos
+    # ><
 
     def __str__(self):
         return self.reais
+
+    def __float__(self):
+        return (self.centavos / 100)
+
+    def __int__(self):
+        return self.centavos
 
     # Operações 
 
