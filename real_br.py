@@ -5,23 +5,12 @@ class Real:
 
     def __init__(self, valor: float or int or str, centavos=False) -> str or int or float:  # Atenção com floats e strings com mais de 2 casa decimais serão arredondados
         self._sinal = None
-        _valor = self._achar_sinal(valor)
+        _valor: str = self._achar_sinal(valor)
 
         if not centavos:
-            if type(_valor) is float:
-
-                _valor = str(round(_valor, 2))
-                self.centavos: int = self._verificar_valor(_valor)
-
-            elif type(_valor) is str:
-
-                self.centavos: int = self._verificar_valor(_valor)
-
-            else:
-
-                self.centavos: int = self._verificar_valor(_valor)
-
+            self.centavos: int = self._verificar_valor(_valor)
             self.reais: str = self._mascara_reais()
+
         else:
             _valor = str(_valor)
             verificacao = self._verifica_centavos(_valor)
@@ -90,7 +79,7 @@ class Real:
 
             else:
 
-                return int(f'{valor_em_centavos[0]}{valor_em_centavos[1]}')
+                return int(f'{valor_em_centavos[0]}{(valor_em_centavos[1])[:2]}')
         else:
             return valor_em_centavos
 
@@ -113,7 +102,7 @@ class Real:
         else:
             return int(f'{valor}00')
 
-    def _achar_sinal(self, valor: str):
+    def _achar_sinal(self, valor: str) -> str:
         valor = str(valor)
         if '-' in valor:
             self._sinal = '-'
@@ -126,6 +115,7 @@ class Real:
         else:
             self._sinal = ''
             return valor
+
     # metodos
 
     def __str__(self):
