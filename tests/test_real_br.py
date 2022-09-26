@@ -102,6 +102,7 @@ class Test:
         entrada = str(entrada)
 
         assert entrada == esperado
+
     def test_se_real_br_aceita_infixo_R_cifrao(self):
         entrada = 'R$ 0,10'  # Valor em centavos
         esperado = 'R$ 0,10'
@@ -140,11 +141,13 @@ class Test:
             entrada = 'A'
             saida = Real(entrada)
             assert saida
+
     def test_de_entrada_errada_de_centavos(self):
         with pytest.raises(ValueError):
             entrada = 100.0
             saida = Real(entrada, centavos=True)
             assert saida
+
     def test_de_operacoes_logicas(self):
 
         entrada1 = Real(20)
