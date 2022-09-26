@@ -12,7 +12,7 @@ class Real:
             self.reais: str = self._mascara_reais()
 
         else:
-            _valor = str(_valor)
+            _valor = _valor
             verificacao = self._verifica_centavos(_valor)
             if verificacao:
                 self.centavos = int(_valor)
@@ -44,18 +44,17 @@ class Real:
     def _verificar_valor(self, valor: str):
 
         m = re.compile(r"\d+[,]?[.]?(\d+)?")
-        result = m.match(str(valor))
+        result = m.match(valor)
         if result:
             return self._sanitiza_valor(valor)
 
-        elif 'R$' in str(valor):
+        elif 'R$' in valor:
             return self._sanitiza_valor(valor.replace('R$', ''))
 
         else:
             raise ValueError(f'Entrada de valor invalida! valor = {valor}')
 
     def _sanitiza_valor(self, valor: str):
-
         valor_em_centavos = self._fatiar_valor(valor)
 
         if type(valor_em_centavos) is list:
@@ -71,17 +70,17 @@ class Real:
 
     # Separa o valor em itens de uma lista pra depois adicionar "." de 3 em 3 numeros usando re
 
-    def _fatiar_valor(self, valor):
+    def _fatiar_valor(self, valor: str) -> list:
 
-        if ',' in str(valor):
+        if ',' in valor:
             valor = valor.replace('.', '')
-            lista_fatiada = str(valor).split(",")
+            lista_fatiada = valor.split(",")
             lista_fatiada[1] = (lista_fatiada[1])[:3]
             return lista_fatiada
 
 
-        elif '.' in str(valor):
-            lista_fatiada = str(valor).split(".")
+        elif '.' in valor:
+            lista_fatiada = valor.split(".")
             lista_fatiada[1] = (lista_fatiada[1])[:3]
             return lista_fatiada
 
@@ -109,10 +108,10 @@ class Real:
 
     # Operações 
 
-    def __add__(self, other):
+    def __add__(self, other: object):
         return Real(self.centavos + other.centavos, centavos=True)
 
-    def __sub__(self, other):
+    def __sub__(self, other: object):
         return Real(self.centavos - other.centavos, centavos=True)
 
     def __truediv__(self, other: int or float):
@@ -121,20 +120,20 @@ class Real:
     def __mul__(self, other: int or float):
         return Real((self.centavos) * other, centavos=True)
 
-    def __eq__(self, other):
+    def __eq__(self, other: object):
         return self.centavos == other.centavos
 
-    def __lt__(self, other):
+    def __lt__(self, other: object):
         return self.centavos < other.centavos
 
-    def __le__(self, other):
+    def __le__(self, other: object):
         return self.centavos <= other.centavos
 
-    def __ne__(self, other):
+    def __ne__(self, other: object):
         return self.centavos != other.centavos
 
-    def __ge__(self, other):
+    def __ge__(self, other: object):
         return self.centavos >= other.centavos
 
-    def __gt__(self, other):
+    def __gt__(self, other: object):
         return self.centavos > other.centavos
