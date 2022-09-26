@@ -31,6 +31,15 @@ class Test:
 
         assert entrada == esperado
 
+    def test_se_real_br_aceita_numeros_str_enormes(self):
+        entrada = '100,12343242323123'
+        esperado = 'R$ 100,12'
+
+        entrada = Real(entrada)
+        entrada = str(entrada)
+
+        assert entrada == esperado
+
     def test_se_real_br_aceita_numeros_em_str_sem_virgula_ou_ponto(self):
         entrada = '100'
         esperado = 'R$ 100,00'
