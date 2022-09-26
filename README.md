@@ -47,3 +47,7 @@ real = Real(valor)
 print(float(real),  int(real), str(real))
 
 ```
+# A classe possui 100% de cobertura de testes
+````commandline
+pytest -cov
+````
