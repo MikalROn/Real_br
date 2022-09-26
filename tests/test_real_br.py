@@ -145,7 +145,30 @@ class Test:
             entrada = 100.0
             saida = Real(entrada, centavos=True)
             assert saida
+    def test_de_operacoes_logicas(self):
 
+        entrada1 = Real(20)
+        entrada2 = Real(20)
+        entrada3 = Real(1)
+
+
+        esperado = [ True, False, True, False, True, False]
+
+        resultado = [
+         entrada1 == entrada2
+        , entrada1 != entrada2
+        , entrada1 > entrada3
+        ,  entrada1 < entrada3
+        , entrada1 >= entrada3
+        , entrada1 <= entrada3]
+
+        assert esperado == resultado
+
+    def test_de_entrada_0(self):
+
+        entrada = Real(0)
+
+        assert entrada == 'R$ 0,0'
 
 
 
