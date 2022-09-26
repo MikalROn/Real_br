@@ -37,5 +37,13 @@ real = Real(valor)
 print(real.centavos)
 
 ```
-> A classe retorna float, str e inteiro sendo o valor em centavos
+> A classe retorna float, str e int (int é retornado em centavos)
 
+```
+from real_br import Real
+
+valor = 10
+real = Real(valor)
+print(float(real),  int(real), str(real)
+
+```
