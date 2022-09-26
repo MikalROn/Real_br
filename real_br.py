@@ -26,7 +26,7 @@ class Real:
             self.reais: str = self._mascara_reais()
         else:
             _valor = str(_valor)
-            verificacao = self.verifica_centavos(_valor)
+            verificacao = self._verifica_centavos(_valor)
             if verificacao:
                 self.centavos = int(_valor)
                 self.reais: str = self._mascara_reais()
@@ -49,7 +49,7 @@ class Real:
         else:
             return f'R$ {self._sinal}0,{str(self.centavos)}'
 
-    def verifica_centavos(self, valor: str):
+    def _verifica_centavos(self, valor: str):
         m = re.compile(r"[0-9]+")
         result = m.match(valor)
         return result
