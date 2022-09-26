@@ -12,15 +12,15 @@ class Real:
             if type(_valor) is float:
 
                 _valor = str(round(_valor, 2))
-                self.centavos: int = self.verificar_valor(_valor)
+                self.centavos: int = self._verificar_valor(_valor)
 
             elif type(_valor) is str:
 
-                self.centavos: int = self.verificar_valor(_valor)
+                self.centavos: int = self._verificar_valor(_valor)
 
             else:
 
-                self.centavos: int = self.verificar_valor(_valor)
+                self.centavos: int = self._verificar_valor(_valor)
 
             self.reais: str = self._mascara_reais()
         else:
@@ -53,7 +53,7 @@ class Real:
         result = m.match(valor)
         return result
 
-    def verificar_valor(self, valor: str):
+    def _verificar_valor(self, valor: str):
 
         m = re.compile(r"\d+[,]?[.]?(\d+)?")
         result = m.match(str(valor))
