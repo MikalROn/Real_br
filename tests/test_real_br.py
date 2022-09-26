@@ -95,6 +95,14 @@ class Test:
 
         assert entrada == esperado
 
+    def test_se_real_br_aceita_sinais(self):
+        entradas = ['+100', '-100'  ]# Valor em centavos
+        esperado = ['R$ 100,00', 'R$ -100,00']
+
+        entrada = [Real(x) for x in entradas]
+        entrada = str(entrada)
+        assert entrada[0] == esperado[0] and entrada[1] == esperado[1]
+
     def test_de_entrada_como_letra(self):
         with pytest.raises(ValueError):
             entrada = 'A'
