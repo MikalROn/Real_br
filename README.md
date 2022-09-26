@@ -8,9 +8,9 @@ este projeto tem como objetivo me ajudar na formatação, sanitização e aprese
 ```
 from real_br import Real
 
-Rea(float)
-Real(int)
-Real(str)
+print(ReaL(10.10),
+    Real(10),
+    Real('R$ 100,55'))
 
 ```
 > Nos testes você consegue conferir melhor em quais formatos a classe aceita os valores.
@@ -26,12 +26,16 @@ real = Real(valor)
 print(real)
 
 ```
+
 > você também pode obter o equivalente em centavos usando
+
 ```
 from real_br import Real
 
 valor = 10
-real = Real(valo)
+real = Real(valor)
 print(real.centavos)
 
 ```
+> A classe retorna float, str e inteiro sendo o valor em centavos
+
