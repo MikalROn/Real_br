@@ -1,5 +1,4 @@
 import pytest
-from pytest import raises
 from real_br import *
 
 

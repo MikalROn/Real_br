@@ -3,7 +3,7 @@ import re
 
 class Real:
 
-    def __init__(self, valor: float or int or str, centavos=False) -> str or int or float:  # Atenção com floats e strings com mais de 2 casa decimais serão arredondados
+    def __init__(self, valor: float or int or str, centavos=False) -> str or int or float:
         self._sinal = None
         _valor: str = self._achar_sinal(valor)
 
