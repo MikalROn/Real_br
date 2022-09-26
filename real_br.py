@@ -140,10 +140,10 @@ class Real:
         return Real(self.centavos - other.centavos, centavos=True)
 
     def __truediv__(self, other: int or float):
-        return Real((self.centavos/100) / other, centavos=True)
+        return Real((self.centavos) / other, centavos=True)
 
     def __mul__(self, other: int or float):
-        return Real((self.centavos/100) * other, centavos=True)
+        return Real((self.centavos) * other, centavos=True)
 
     def __eq__(self, other):
         return self.centavos == other.centavos
