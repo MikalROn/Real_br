@@ -96,7 +96,7 @@ class Test:
         assert entrada == esperado
 
     def test_se_real_br_aceita_sinais(self):
-        entradas = ['+100', '-100'  ]# Valor em centavos
+        entradas = ['+100', '-100']
         esperado = ['R$ 100,00', 'R$ -100,00']
 
         entrada = [Real(x) for x in entradas]
