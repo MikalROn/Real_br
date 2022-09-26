@@ -142,6 +142,13 @@ class Test:
             saida = Real(entrada)
             assert saida
 
+    def test_de_entrada_como_centavos_errada(self):
+
+        with pytest.raises(ValueError):
+            entrada = 'A'
+            saida = Real(entrada, centavos=True)
+            assert saida
+
     def test_de_entrada_errada_de_centavos(self):
         with pytest.raises(ValueError):
             entrada = 100.0
@@ -157,6 +164,7 @@ class Test:
 
         saida = entrada + entrada
         assert str(saida) == esperado
+
     def test_de_subtracao(self):
         entrada = 100
 
@@ -166,6 +174,7 @@ class Test:
 
         saida = entrada - entrada
         assert str(saida) == esperado
+
     def test_de_divisao(self):
         entrada = 100
 
@@ -175,6 +184,7 @@ class Test:
 
         saida = entrada / 2
         assert str(saida) == esperado
+
     def test_de_multiplicacao(self):
         entrada = 100
 
