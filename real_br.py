@@ -36,12 +36,12 @@ class Real:
         else:
             return f'R$ {self._sinal}0,{str(self.centavos)}'
 
-    def _verifica_centavos(self, valor: str):
+    def _verifica_centavos(self, valor: str) -> bool:
         m = re.compile(r"[0-9]+")
         result = m.match(valor)
         return result
 
-    def _verificar_valor(self, valor: str):
+    def _verificar_valor(self, valor: str) -> str:
 
         m = re.compile(r"\d+[,]?[.]?(\d+)?")
         result = m.match(valor)
@@ -54,7 +54,7 @@ class Real:
         else:
             raise ValueError(f'Entrada de valor invalida! valor = {valor}')
 
-    def _sanitiza_valor(self, valor: str):
+    def _sanitiza_valor(self, valor: str) -> int:
         valor_em_centavos = self._fatiar_valor(valor)
 
         if type(valor_em_centavos) is list:
@@ -108,32 +108,32 @@ class Real:
 
     # Operações 
 
-    def __add__(self, other: object):
+    def __add__(self, other: object) -> object:
         return Real(self.centavos + other.centavos, centavos=True)
 
-    def __sub__(self, other: object):
+    def __sub__(self, other: object) -> object:
         return Real(self.centavos - other.centavos, centavos=True)
 
-    def __truediv__(self, other: int or float):
+    def __truediv__(self, other: int or float) -> object:
         return Real((self.centavos/100) / other)
 
-    def __mul__(self, other: int or float):
+    def __mul__(self, other: int or float) -> object:
         return Real((self.centavos) * other, centavos=True)
 
-    def __eq__(self, other: object):
+    def __eq__(self, other: object) -> bool:
         return self.centavos == other.centavos
 
-    def __lt__(self, other: object):
+    def __lt__(self, other: object) -> bool:
         return self.centavos < other.centavos
 
-    def __le__(self, other: object):
+    def __le__(self, other: object)-> bool:
         return self.centavos <= other.centavos
 
-    def __ne__(self, other: object):
+    def __ne__(self, other: object) -> bool:
         return self.centavos != other.centavos
 
-    def __ge__(self, other: object):
+    def __ge__(self, other: object) -> bool:
         return self.centavos >= other.centavos
 
-    def __gt__(self, other: object):
+    def __gt__(self, other: object)-> bool:
         return self.centavos > other.centavos
