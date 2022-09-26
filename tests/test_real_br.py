@@ -148,6 +148,43 @@ class Test:
             saida = Real(entrada, centavos=True)
             assert saida
 
+    def test_de_adicao(self):
+        entrada = 100
+
+        esperado = 'R$ 200,00'
+
+        entrada = Real(entrada)
+
+        saida = entrada + entrada
+        assert str(saida) == esperado
+    def test_de_subtracao(self):
+        entrada = 100
+
+        esperado = 'R$ 0,0'
+
+        entrada = Real(entrada)
+
+        saida = entrada - entrada
+        assert str(saida) == esperado
+    def test_de_divisao(self):
+        entrada = 100
+
+        esperado = 'R$ 50,00'
+
+        entrada = Real(entrada)
+
+        saida = entrada / 2
+        assert str(saida) == esperado
+    def test_de_multiplicacao(self):
+        entrada = 100
+
+        esperado = 'R$ 200,00'
+
+        entrada = Real(entrada)
+
+        saida = entrada * 2
+        assert str(saida) == esperado
+
     def test_de_operacoes_logicas(self):
 
         entrada1 = Real(20)
@@ -171,7 +208,7 @@ class Test:
 
         entrada = Real(0)
 
-        assert entrada == 'R$ 0,0'
+        assert str(entrada) == 'R$ 0,0'
 
 
 
