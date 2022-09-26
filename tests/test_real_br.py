@@ -99,8 +99,8 @@ class Test:
         entradas = ['+100', '-100']
         esperado = ['R$ 100,00', 'R$ -100,00']
 
-        entrada = [Real(x) for x in entradas]
-        entrada = str(entrada)
+        entrada = [str(Real(x)) for x in entradas]
+
         assert entrada[0] == esperado[0] and entrada[1] == esperado[1]
 
     def test_de_entrada_como_letra(self):
