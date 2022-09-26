@@ -94,9 +94,12 @@ class Test:
         entrada = str(entrada)
 
         assert entrada == esperado
-    def test_de_exeoptions(self):
+
+    def test_de_entrada_como_letra(self):
         with pytest.raises(ValueError):
-            pass
+            entrada = 'A'
+            saida = Real(entrada)
+            assert saida
 
 
 
