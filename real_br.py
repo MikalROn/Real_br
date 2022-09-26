@@ -3,7 +3,7 @@ import re
 
 class Real:
 
-    def __init__(self, valor: float or int or str, centavos=False) -> str or int:  # Atenção com floats e strings com mais de 2 casa decimais serão arredondados
+    def __init__(self, valor: float or int or str, centavos=False) -> str or int or float:  # Atenção com floats e strings com mais de 2 casa decimais serão arredondados
         self._sinal = None
         _valor = self._achar_sinal(valor)
 
@@ -126,6 +126,7 @@ class Real:
         else:
             self._sinal = ''
             return valor
+    # metodos
 
     def __str__(self):
         return self.reais
@@ -141,8 +142,8 @@ class Real:
     def __truediv__(self, other):
         return Real(self.centavos / other.centavos, centavos=True)
 
-    def __mul__(self, other):
-        return Real(self.centavos * other.centavos, centavos=True)
+    def __mul__(self, other: object or int or float):
+        return Real(self.centavos * (other.centavos/ 100), centavos=True)
 
     def __eq__(self, other):
         return self.centavos == other.centavos
