@@ -8,7 +8,7 @@ este projeto tem como objetivo me ajudar na formatação, sanitização e aprese
 ```
 from real_br import Real
 
-print(ReaL(10.10),
+print(Real(10.10),
     Real(10),
     Real('R$ 100,55'))
 
