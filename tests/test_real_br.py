@@ -1,4 +1,5 @@
 import pytest
+from pytest import raises
 from real_br import *
 
 
@@ -75,3 +76,27 @@ class Test:
         entrada = str(entrada)
 
         assert entrada == esperado
+
+    def test_se_real_br_centavos_em_int(self):
+        entrada = 100  # Valor em centavos
+        esperado = 'R$ 1,00'
+
+        entrada = Real(entrada, centavos=True)
+        entrada = str(entrada)
+
+        assert entrada == esperado
+
+    def test_se_real_br_centavos_em_str(self):
+        entrada = '100'  # Valor em centavos
+        esperado = 'R$ 1,00'
+
+        entrada = Real(entrada, centavos=True)
+        entrada = str(entrada)
+
+        assert entrada == esperado
+    def test_de_exeoptions(self):
+        with pytest.raises(ValueError):
+            pass
+
+
+
