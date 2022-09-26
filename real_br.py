@@ -139,11 +139,11 @@ class Real:
     def __sub__(self, other):
         return Real(self.centavos - other.centavos, centavos=True)
 
-    def __truediv__(self, other):
-        return Real(self.centavos / other.centavos, centavos=True)
+    def __truediv__(self, other: int or float):
+        return Real((self.centavos/100) / other, centavos=True)
 
-    def __mul__(self, other: object or int or float):
-        return Real(self.centavos * (other.centavos/ 100), centavos=True)
+    def __mul__(self, other: int or float):
+        return Real((self.centavos/100) * other, centavos=True)
 
     def __eq__(self, other):
         return self.centavos == other.centavos
