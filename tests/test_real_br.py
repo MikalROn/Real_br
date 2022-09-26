@@ -219,5 +219,15 @@ class Test:
 
         assert str(entrada) == 'R$ 0,0'
 
+    def test_de_float(self):
+
+        entrada = Real(100.10)
+
+        assert float(entrada) == 100.10
+    def test_de_int(self):
+
+        entrada = Real(100.10)
+
+        assert int(entrada) == 10010
 
 
