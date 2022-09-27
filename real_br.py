@@ -34,6 +34,10 @@ class Real:
             formato_brasileiro = ('.'.join(formato_brasileiro))
 
             return f'R$ {self._sinal}{formato_brasileiro[::-1]},{str(self.centavos)[-2:]}'
+        
+        elif len(str(self.centavos)) == 1:
+            return f'R$ {self._sinal}0,0{str(self.centavos)}'
+        
         else:
             return f'R$ {self._sinal}0,{str(self.centavos)}'
 

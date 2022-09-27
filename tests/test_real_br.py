@@ -167,7 +167,7 @@ class Test:
     def test_de_subtracao(self):
         entrada = 100
 
-        esperado = 'R$ 0,0'
+        esperado = 'R$ 0,00'
 
         entrada = Real(entrada)
 
