@@ -217,7 +217,7 @@ class Test:
 
         entrada = Real(0)
 
-        assert str(entrada) == 'R$ 0,0'
+        assert str(entrada) == 'R$ 0,00'
 
     def test_de_float(self):
 
