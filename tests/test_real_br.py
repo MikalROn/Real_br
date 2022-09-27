@@ -1,5 +1,5 @@
 import pytest
-from real_br import *
+from real_br.real_br import *
 
 
 class Test:
