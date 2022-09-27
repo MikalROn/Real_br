@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: Real-Brasileiro
+Version: 0.0.1
+Summary: Classe para formatar valores para o formato de Real Brasileiro
+Author: Daniel Mendonca
+Author-email: heromon.9010@gmai.com
+License: MIT License
+Keywords: Dinheiro,dinheiro brasileiro,reias,Dinheiro em reais,Real_brasileiro,Real brasileiro,R$
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Real brasileiro
+
+> Status do projeto: Em desenvolvimento
+
+este projeto tem como objetivo me ajudar na formataÃ§Ã£o, sanitizaÃ§Ã£o e apresentaÃ§Ã£o dos valores com os quais eu diariamente trabalho.
+
+## Entradas
+```
+from real_br import Real
+
+print(Real(10.10),
+    Real(10),
+    Real('R$ 100,55'))
+
+```
+> Nos testes vocÃª consegue conferir melhor em quais formatos a classe aceita os valores.
+
+
+## Criando objeto
+
+```
+from real_br import Real
+
+valor = 10
+real = Real(valor)
+print(real)
+
+```
+
+> vocÃª tambÃ©m pode obter o equivalente em centavos usando
+
+```
+from real_br import Real
+
+valor = 10
+real = Real(valor)
+print(real.centavos)
+
+```
+> A classe retorna float, str e int (int Ã© retornado em centavos)
+
+```
+from real_br import Real
+
+valor = 10
+real = Real(valor)
+print(float(real),  int(real), str(real))
+
+```
+# A classe possui 100% de cobertura de testes
+````commandline
+pytest -cov
+````
