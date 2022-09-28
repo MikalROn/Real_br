@@ -4,11 +4,10 @@ with open("README.md", "r") as arq:
     readme = arq.read()
 
 keywords = [ 'Dinheiro', 'dinheiro brasileiro', 'reias', 'Dinheiro em reais', 
-            'Real_brasileiro', 'Real brasileiro', 'R$'
-            ]
+            'Real_brasileiro', 'Real brasileiro', 'R$']
 
-setup(name='Real-Brasileiro',
-    version='0.0.1',
+setup(name='real_brasileiro',
+    version='0.0.2',
     license='MIT License',
     author='Daniel Mendonca',
     long_description=readme,
@@ -17,4 +16,4 @@ setup(name='Real-Brasileiro',
     keywords= keywords,
     description='Classe para formatar valores para o formato de Real Brasileiro',
     packages=['real_br'],
-    install_requires=['re'],)
+    requires=[])

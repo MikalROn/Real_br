@@ -45,9 +45,3 @@ from real_br import Real
 valor = 10
 real = Real(valor)
 print(float(real),  int(real), str(real))
-
-```
-# A classe possui 100% de cobertura de testes
-````commandline
-pytest -cov
-````
