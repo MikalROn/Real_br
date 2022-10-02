@@ -7,7 +7,6 @@ este projeto tem como objetivo me ajudar na formatação, sanitização e aprese
 
 ```
 $pip install real-brasileiro==0.0.2
-
 ```
 
 ## Entradas
