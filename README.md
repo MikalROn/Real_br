@@ -6,7 +6,7 @@ este projeto tem como objetivo me ajudar na formatação, sanitização e aprese
 ## Download
 
 ```
-pip install real-brasileiro==0.0.2
+$pip install real-brasileiro==0.0.2
 
 ```
 
