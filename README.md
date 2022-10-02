@@ -3,6 +3,12 @@
 > Status do projeto: Em desenvolvimento
 
 este projeto tem como objetivo me ajudar na formatação, sanitização e apresentação dos valores com os quais eu diariamente trabalho.
+## Download
+
+```
+pip install real-brasileiro==0.0.2
+
+```
 
 ## Entradas
 ```
