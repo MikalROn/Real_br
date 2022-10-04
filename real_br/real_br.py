@@ -60,6 +60,7 @@ class Real:
             raise ValueError(f'Entrada de valor invalida! valor = {valor}')
 
     def _sanitiza_valor(self, valor: str) -> int:
+        valor = valor.strip()
         valor_em_centavos = self._fatiar_valor(valor)
 
         if type(valor_em_centavos) is list:
