@@ -229,5 +229,16 @@ class Test:
         entrada = Real(100.10)
 
         assert int(entrada) == 10010
+    def test_subtracao_entre_numeros_negativos(self):
+        entrada1, entrada2 = -100, 200
+        esperado = 'R$ 100,00'
+
+        entrada1 = Real(entrada1)
+        entrada2 = Real(entrada2)
+
+        resultado = entrada1 + entrada2
+
+
+        assert str(resultado) == esperado
 
 

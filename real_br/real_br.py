@@ -4,7 +4,7 @@ import re
 class Real:
 
     def __init__(self, valor: float or int or str, centavos=False) -> str or int or float:
-        self._sinal = None
+        self._sinal = ''
         _valor: str = self._achar_sinal(valor)
 
         if not centavos:
@@ -22,8 +22,9 @@ class Real:
 
 
     def _mascara_reais(self):
-        if len(str(self.centavos)) > 2:
-            valor_sem_virgula = str(self.centavos)[:-2]
+        centavos = str(self.centavos).replace(self._sinal, '')
+        if len(centavos) > 2:
+            valor_sem_virgula = centavos[:-2]
             formato_brasileiro = re.split(r'([0-9]{3})', f'{valor_sem_virgula[::-1]}'.strip())
 
             x = 0
@@ -33,13 +34,13 @@ class Real:
                 x += 1
             formato_brasileiro = ('.'.join(formato_brasileiro))
 
-            return f'R$ {self._sinal}{formato_brasileiro[::-1]},{str(self.centavos)[-2:]}'
-        
-        elif len(str(self.centavos)) == 1:
-            return f'R$ {self._sinal}0,0{str(self.centavos)}'
-        
+            return f'R$ {self._sinal}{formato_brasileiro[::-1]},{centavos[-2:]}'
+
+        elif len(centavos) == 1:
+            return f'R$ {self._sinal}0,0{centavos}'
+
         else:
-            return f'R$ {self._sinal}0,{str(self.centavos)}'
+            return f'R$ {self._sinal}0,{centavos}'
 
     def _verifica_centavos(self, valor: str) -> bool:
         m = re.compile(r"[0-9]+")
@@ -66,13 +67,13 @@ class Real:
         if type(valor_em_centavos) is list:
             if len(valor_em_centavos[1]) == 1:
 
-                return int(f'{valor_em_centavos[0]}{valor_em_centavos[1]}0')
+                return int(f'{self._sinal}{valor_em_centavos[0]}{valor_em_centavos[1]}0')
 
             else:
 
-                return int(f'{valor_em_centavos[0]}{(valor_em_centavos[1])[:2]}')
+                return int(f'{self._sinal}{valor_em_centavos[0]}{(valor_em_centavos[1])[:2]}')
         else:
-            return valor_em_centavos
+            return int(f'{self._sinal}{valor_em_centavos}')
 
     # Separa o valor em itens de uma lista pra depois adicionar "." de 3 em 3 numeros usando re
 
@@ -94,20 +95,18 @@ class Real:
             return int(f'{valor}00')
 
     def _achar_sinal(self, valor: str) -> str:
-        valor = str(valor)
+        valor = str(valor).replace(' ', '')
         if '-' in valor:
             self._sinal = '-'
             return valor.replace('-', '')
 
         elif '+' in valor:
-            self._sinal = ''
             return valor.replace('+', '')
 
         else:
-            self._sinal = ''
             return valor
 
-    # ><
+    # <>
 
     def __str__(self):
         return self.reais
@@ -118,7 +117,7 @@ class Real:
     def __int__(self):
         return self.centavos
 
-    # Operações 
+    # Operações
 
     def __add__(self, other: object) -> object:
         return Real(self.centavos + other.centavos, centavos=True)
