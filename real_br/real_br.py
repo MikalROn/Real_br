@@ -112,7 +112,7 @@ class Real:
         return self.reais
 
     def __float__(self):
-        return (self.centavos / 100)
+        return float(f'{self._sinal}{self.centavos / 100}')
 
     def __int__(self):
         return self.centavos
